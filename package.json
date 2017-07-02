@@ -1,0 +1,38 @@
+{
+  "name": "rxapp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "web-watch": "webpack --progress --colors --watch",
+    "rn-watch": "tsc --watch",
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "install-deps": "npm i"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.12",
+    "@types/webpack": "^2.2.14",
+    "awesome-typescript-loader": "3.1.2",
+    "file-loader": "^0.11.2",
+    "rnpm-plugin-windows": "^0.2.5",
+    "source-map-loader": "^0.1.6",
+    "ts-node": "^3.0.2",
+    "typescript": "2.1.6",
+    "url-loader": "^0.5.9",
+    "webpack": "2.2.1"
+  },
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-addons-perf": "15.5.0-rc.2",
+    "react-addons-test-utils": "15.5.1",
+    "react-dom": "15.5.3",
+    "react-native": "^0.42.0",
+    "react-native-windows": "^0.33.0",
+    "reactxp": "0.42.0-rc.3",
+    "simplerestclients": "^0.0.15",
+    "synctasks": "0.2.18",
+    "reactxp-navigation": "https://github.com/LeJPR/reactxp-navigation.git"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}

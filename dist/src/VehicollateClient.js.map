@@ -1,0 +1,1 @@
+{"version":3,"file":"VehicollateClient.js","sourceRoot":"","sources":["../../src/VehicollateClient.tsx"],"names":[],"mappings":";AACA,yDAAsD;AAGtD,MAAM,iBAAiB,GAAG,0CAA0C,CAAC;AAkBrE,uBAA+B,SAAQ,qCAAiB;IAEpD,gFAAgF;IAChF,KAAK,CAAC,IAAU;QACZ,MAAM,CAAC,IAAI,CAAC,cAAc,CAAgB,aAAa,EAAE,IAAI,CAAC,CAAA;IAClE,CAAC;CACJ;AAND,8CAMC;;AAGD,kBAAe,IAAI,iBAAiB,CAAC,iBAAiB,CAAC,CAAC"}
