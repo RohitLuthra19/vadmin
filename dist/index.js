@@ -1,6 +1,6 @@
 "use strict";
 const RX = require("reactxp");
-const Login = require("./Login");
+const App = require("./App");
 RX.App.initialize(true, true);
-RX.UserInterface.setMainView(RX.createElement(Login, null));
+RX.UserInterface.setMainView(RX.createElement(App, null));
 //# sourceMappingURL=index.js.map

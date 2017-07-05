@@ -82,13 +82,13 @@ class User {
 }
 
 interface LoginProps {
-    navigation:{navigate: (scene:String) => void};
+     onPressNavigate: () => void;
 }
 
 class Login extends RX.Component<LoginProps, LoginState> {
 
-    constructor(props : any) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {};
     }
@@ -101,16 +101,19 @@ class Login extends RX.Component<LoginProps, LoginState> {
     }
 
     onLoginPressed(storage: Storage){
-        //const { navigate } = this.props.navigation;
         const user = new User(this.state.userEmail, this.state.password);
         VehicollateClient.login(user).then(success => {
             alert(success.message);
-            //storage.setItem('userEmail', success.userInfo.userEmail);
+            //storage.setItem('userEmail', success.userInfo.userEmail)
             //storage.setItem('Authorization', success.token);
-            //this.props.navigation.navigate("Home");
+            this._onPressNavigate();
         }).catch(error => {
             alert('Error in login');
         });
+    }
+
+    private _onPressNavigate = () => {
+        this.props.onPressNavigate();
     }
 
     render(): JSX.Element | null {

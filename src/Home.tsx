@@ -14,12 +14,37 @@ const styles = {
     })
 };
 
-class Home extends RX.Component<null, null> {
+interface HomeProps {
+    onNavigateBack: () => void;
+}
+
+interface HomeState {
+    users?: number,
+    vehicles?: number,
+    messages?: number
+}
+
+class Home extends RX.Component<HomeProps, HomeState> {
     private _navigator: RX.Navigator;
 
+    constructor() {
+        super();
+
+        this.state = {
+            users: 0,
+            vehicles: 0,
+            messages: 0
+        };
+    }
+
     componentDidMount(storage: Storage) {
-        console.log(storage.getItem('userEmail'));
+        //console.log(storage.getItem('userEmail'));
         //storage.getItem('Authorization');
+        //alert(storage.getItem('userEmail'));
+    }
+
+    private _onPressBack = () => {
+        this.props.onNavigateBack();
     }
 
     render() {

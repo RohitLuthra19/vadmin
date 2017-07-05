@@ -72,10 +72,13 @@ class User {
     }
 }
 class Login extends RX.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this._onChangeEmailAddress = (newEmail) => {
             this.setState({ userEmail: newEmail });
+        };
+        this._onPressNavigate = () => {
+            this.props.onPressNavigate();
         };
         this.state = {};
     }
@@ -85,8 +88,9 @@ class Login extends RX.Component {
         const user = new User(this.state.userEmail, this.state.password);
         VehicollateClient_1.default.login(user).then(success => {
             alert(success.message);
-            storage.setItem('userEmail', success.userInfo.userEmail);
-            storage.setItem('Authorization', success.token);
+            //storage.setItem('userEmail', success.userInfo.userEmail)
+            //storage.setItem('Authorization', success.token);
+            this._onPressNavigate();
         }).catch(error => {
             alert('Error in login');
         });

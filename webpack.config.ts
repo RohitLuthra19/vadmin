@@ -1,4 +1,5 @@
 import * as webpack from 'webpack';
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const config: webpack.Configuration = {
     entry: "./src/index.tsx",
@@ -22,6 +23,20 @@ const config: webpack.Configuration = {
             {test: /\.(jpe?g|png|gif|svg)$/i, loader: "file-loader?name=assets/[name].[ext]"}
         ]
     },
+
+    plugins: [
+        new BrowserSyncPlugin({
+            host: 'localhost',
+            port: 3000,
+            server: { 
+                baseDir: __dirname,
+                
+            },
+            startPath: 'index.html'
+            //server: { baseDir: ['dist'] },proxy: './index.html'
+            //server: { baseDir: __dirname + '/index.html'}
+        })
+    ]
 };
 
 export default config;
