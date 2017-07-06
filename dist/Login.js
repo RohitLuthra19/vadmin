@@ -84,12 +84,12 @@ class Login extends RX.Component {
     }
     componentDidMount() {
     }
-    onLoginPressed(storage) {
+    onLoginPressed() {
         const user = new User(this.state.userEmail, this.state.password);
         VehicollateClient_1.default.login(user).then(success => {
             alert(success.message);
-            //storage.setItem('userEmail', success.userInfo.userEmail)
-            //storage.setItem('Authorization', success.token);
+            RX.Storage.setItem('userEmail', success.userInfo.userEmail);
+            RX.Storage.setItem('Authorization', success.token);
             this._onPressNavigate();
         }).catch(error => {
             alert('Error in login');

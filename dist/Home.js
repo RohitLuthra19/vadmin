@@ -20,19 +20,24 @@ class Home extends RX.Component {
             this.props.onNavigateBack();
         };
         this.state = {
+            userEmail: null,
             users: 0,
             vehicles: 0,
             messages: 0
         };
     }
-    componentDidMount(storage) {
+    componentDidMount() {
         //console.log(storage.getItem('userEmail'));
         //storage.getItem('Authorization');
-        //alert(storage.getItem('userEmail'));
+        RX.Storage.getItem('userEmail').then(success => {
+            this.setState({
+                userEmail: success
+            });
+        });
     }
     render() {
         return (RX.createElement(RX.View, { style: styles.tabStyle },
-            RX.createElement(RX.Text, { style: styles.contentStyle }, "Tab 1")));
+            RX.createElement(RX.Text, { style: styles.contentStyle }, this.state.userEmail)));
     }
 }
 module.exports = Home;

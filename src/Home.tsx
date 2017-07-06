@@ -19,6 +19,7 @@ interface HomeProps {
 }
 
 interface HomeState {
+    userEmail?: string,
     users?: number,
     vehicles?: number,
     messages?: number
@@ -31,16 +32,21 @@ class Home extends RX.Component<HomeProps, HomeState> {
         super();
 
         this.state = {
+            userEmail : null,
             users: 0,
             vehicles: 0,
             messages: 0
         };
     }
 
-    componentDidMount(storage: Storage) {
+    componentDidMount() {
         //console.log(storage.getItem('userEmail'));
         //storage.getItem('Authorization');
-        //alert(storage.getItem('userEmail'));
+        RX.Storage.getItem('userEmail').then(success => {
+            this.setState({
+                userEmail: success
+            });
+        });
     }
 
     private _onPressBack = () => {
@@ -51,7 +57,7 @@ class Home extends RX.Component<HomeProps, HomeState> {
         return(
             <RX.View style={styles.tabStyle}>
                 <RX.Text  style={styles.contentStyle}>
-                Tab 1
+                {this.state.userEmail}
                 </RX.Text>
             </RX.View>
         )
